@@ -1,3 +1,5 @@
+import Script from 'next/script'
+
 export default function Footer() {
   return (
     <>
@@ -44,6 +46,7 @@ export default function Footer() {
           </p>
         </div>
       </footer>
+
     </>
   );
 }
