@@ -42,8 +42,6 @@ const { addItemToCart } = require("./utils/addItemToCart");
 exports.handler = async (event) => {
   const { cartId, itemId, quantity } = JSON.parse(event.body);
 
-  console.log(cartId, itemId, quantity);
-
   if (cartId) {
     console.log("--------------------------------");
     console.log("Adding item to existing cart...");
