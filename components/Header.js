@@ -30,6 +30,7 @@ export default function Header() {
             </Link>
           </li>
         </ul>
+        <div className="main-nav-item" id="search"></div>
       </nav>
     </header>
   );
