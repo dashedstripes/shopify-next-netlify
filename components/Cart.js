@@ -8,7 +8,7 @@ export default function Cart() {
   const [showProducts, setShowProducts] = useState(true);
   const [products, setProducts] = useState([]);
   const [cost, setCost] = useState({});
-  const { cartId, setCartId } = useAppContext();
+  const { cartId, setCartId, cartItems, setCartItems } = useAppContext();
 
   useEffect(async () => {
     const localCart = cartId;
@@ -46,7 +46,10 @@ export default function Cart() {
           <CartTable
             cartItems={products}
             cartId={cartId}
-            removeItem={setProducts}
+            removeItem={(id) => {
+              setProducts(id)
+              setCartItems(cartItems - 1 || 0);
+            }}
           />
           <CartTotal cost={cost} />
         </div>
