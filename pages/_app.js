@@ -1,4 +1,4 @@
-import { AppWrapper } from '../state.js'; // import based on where you put it
+import { AppWrapper, useAppContext } from '../state.js'; // import based on where you put it
 import '@styles/globals.css';
 import Head from "next/head";
 import Script from 'next/script';

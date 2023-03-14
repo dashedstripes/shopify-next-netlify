@@ -55,7 +55,7 @@ export default function ProductPageContent({ product }) {
   // Cost of the chosen variant
   const [cost, setCost] = useState("");
 
-  const { cartId, setCartId } = useAppContext();
+  const { cartId, setCartId, setCartItems, cartItems } = useAppContext();
 
   useEffect(() => {
     let variantPrice = getCurrentVariantObject(vars, chosenVariant).node.priceV2
@@ -83,6 +83,7 @@ export default function ProductPageContent({ product }) {
 
     const data = await cartResponse.json();
     setCartId(data.id);
+    setCartItems(cartItems + 1 || 0)
 
     return data;
   };

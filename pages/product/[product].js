@@ -4,8 +4,11 @@ import Header from "@components/Header";
 import Footer from "@components/Footer";
 import { getProductList } from "@api/getProductList";
 import { useEffect } from 'react';
+import { useAppContext } from "state";
 
 export default function ProductPage({ product }) {
+  const { cartItems, setCartItems } = useAppContext();
+
   useEffect(() => {
     window.algoliasearchNetlify({
       appId: 'W3LR4ICI9R',
