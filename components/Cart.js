@@ -46,9 +46,10 @@ export default function Cart() {
           <CartTable
             cartItems={products}
             cartId={cartId}
-            removeItem={(id) => {
-              setProducts(id)
-              setCartItems(cartItems - 1 || 0);
+            removeItem={(newItems) => {
+              setProducts(newItems)
+              console.log(newItems);
+              setCartItems(newItems.length || 0);
             }}
           />
           <CartTotal cost={cost} />

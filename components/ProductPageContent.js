@@ -83,7 +83,7 @@ export default function ProductPageContent({ product }) {
 
     const data = await cartResponse.json();
     setCartId(data.id);
-    setCartItems(cartItems + 1 || 0)
+    setCartItems(cartItems + data?.lines?.edges?.[0]?.quantity || 0)
 
     return data;
   };
