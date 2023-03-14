@@ -20,7 +20,7 @@ export default function Home({ products }) {
   return (
     <>
       <Head>
-        <title>Cheese and Meat Shop</title>
+        <title>LifeFitness</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
