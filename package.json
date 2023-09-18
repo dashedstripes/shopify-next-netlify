@@ -1,22 +1,20 @@
 {
   "name": "shopify-next-netlify",
-  "version": "0.5.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "This is a Next.js + Shopify Cart API demo! [Check out the site here](https://next-shopify-example.netlify.app/). If you want to make your own version, make sure you create a Shopify account and create some products, and install the [Netlify CLI](https://docs.netlify.com/cli/get-started/).",
+  "main": "state.js",
   "scripts": {
-    "start": "netlify dev",
     "dev": "next dev",
     "build": "next build",
-    "export": "next export"
+    "start": "next start",
+    "lint": "next lint"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "algoliasearch": "^4.15.0",
-    "next": "^11.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-instantsearch-dom": "^6.39.0",
-    "react-instantsearch-hooks-web": "^6.41.0"
-  },
-  "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.8.0"
+    "next": "^13.4.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

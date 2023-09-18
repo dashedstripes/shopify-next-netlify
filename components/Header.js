@@ -5,38 +5,40 @@ import { useEffect } from 'react';
 export default function Header() {
   const { cartId, setCartId, setCartItems, cartItems } = useAppContext();
 
-  useEffect(async () => {
-    if(cartId) {
-      const response = await fetch("/.netlify/functions/get-cart", {
-        method: "post",
-        body: JSON.stringify({
-          cartId,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
-      const json = await response.json(); 
-      const numOfItems = json.cart.lines.edges?.reduce((prev, curr) => {
-        return prev + curr?.node?.quantity || 0
-      }, 0);
-
-      setCartItems(numOfItems || 0)
+  useEffect(() => {
+    async function fetchCart() {
+      if(cartId) {
+        const response = await fetch("/.netlify/functions/get-cart", {
+          method: "post",
+          body: JSON.stringify({
+            cartId,
+          }),
+          headers: { "Content-Type": "application/json" },
+        });
+        const json = await response.json(); 
+        const numOfItems = json.cart.lines.edges?.reduce((prev, curr) => {
+          return prev + curr?.node?.quantity || 0
+        }, 0);
+  
+        setCartItems(numOfItems || 0)
+      }
     }
+
+    fetchCart()
   }, [cartId]);
 
   return (
     <header className="app-header">
       <h1>
         <Link href="/">
-          <a>
             <img src='/logo.svg'/>
-          </a>
         </Link>
       </h1>
       <nav className="main-nav">
         <ul>
           <li className="main-nav-item">
             <Link href="/">
-              <a>All Products</a>
+              All Products
             </Link>
           </li>
           {/* <li className="main-nav-item">
@@ -49,8 +51,8 @@ export default function Header() {
             <Link href="/boards"><a>Boards</a></Link>
           </li> */}
           <li className="main-nav-item">
-            <Link href="/cart">
-              <a className="cart cartLink">Cart ({cartItems})</a>
+            <Link href="/cart" className="cart cartLink">
+              Cart ({cartItems})
             </Link>
           </li>
         </ul>

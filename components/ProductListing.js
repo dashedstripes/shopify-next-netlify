@@ -14,9 +14,7 @@ export default function ProductListing({ product }) {
         </p>
       </div>
       <Link href={`/product/${product.handle}`}>
-        <a>
-          <button>View Item {`>`} </button>
-        </a>
+        <button>View Item {`>`} </button>
       </Link>
     </li>
   );
