@@ -31,7 +31,7 @@ export default function Header() {
     <header className="app-header">
       <h1>
         <Link href="/">
-            <img src='/logo.svg'/>
+            <img src='/logo.png' className='logo'/>
         </Link>
       </h1>
       <nav className="main-nav">
