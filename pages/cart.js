@@ -7,7 +7,7 @@ export default function CartPage() {
   return (
     <>
       <Head>
-        <title>LifeFitness | Cart</title>
+        <title>Netlify | Cart</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
