@@ -23,7 +23,7 @@ export async function getStaticPaths() {
   let routes = products.map((p) => {
     const params = `/product/${p.node.handle}`;
     return params;
-  });
+  })
 
   return { paths: routes, fallback: false };
 }

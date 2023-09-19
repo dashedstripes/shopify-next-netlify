@@ -64,7 +64,11 @@ export default function ProductPageContent({ product }) {
     setCost(formatPrice(variantPrice * quantity));
   }, [chosenVariant, quantity, cost]);
 
-  let image = product.images.edges[0].node;
+  let image = null;
+
+  if(product.images.edges[0]) {
+    image = product.images.edges[0].node;
+  }
 
   let handleAddToCart = async () => {
     console.log("--- Adding to cart ---");
@@ -90,13 +94,15 @@ export default function ProductPageContent({ product }) {
 
   return (
     <section className="product-page-content">
-      <div>
-        <img
-          src={image.src}
-          alt={image.altText}
-          className="product-page-image"
-        />
-      </div>
+      {image && (
+        <div>
+          <img
+            src={image.src}
+            alt={image.altText}
+            className="product-page-image"
+          />
+        </div>
+      )}
       <div className="product-copy">
         <h1>{product.title}</h1>
         <h2>{cost}</h2>
